@@ -1,7 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
     "production": [
       "default",
       "!{projectRoot}/.eslintrc.json",
@@ -40,17 +43,42 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/alchemykit-e2e/**/*"]
+      "exclude": [
+        "apps/alchemykit-e2e/**/*"
+      ]
     }
   ],
   "targetDefaults": {
     "@nx/esbuild:esbuild": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     },
     "test": {
-      "dependsOn": ["^build"]
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "release": {
+      "projects": [
+        "alchemykit"
+      ],
+      "version": {
+        "manifestRootsToUpdate": [
+          "{projectRoot}",
+          "{projectRoot}/dist"
+        ],
+        "preVersionCommand": "npx nx run alchemykit:setup-publish"
+      },
+      "changelog": {
+        "projectChangelogs": true,
+        "workspaceChangelog": false
+      }
     }
   }
 }

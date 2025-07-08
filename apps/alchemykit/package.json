@@ -1,7 +1,8 @@
 {
   "name": "@alchemykit/alchemykit",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
+  "bin": "./main.js",
   "nx": {
     "targets": {
       "build": {
@@ -65,6 +66,12 @@
         "options": {
           "passWithNoTests": true
         }
+      },
+      "setup-publish": {
+        "command": "node apps/alchemykit/setup-publish.js",
+        "dependsOn": [
+          "build"
+        ]
       }
     }
   }

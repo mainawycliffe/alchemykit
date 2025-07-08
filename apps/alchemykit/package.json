@@ -1,6 +1,6 @@
 {
   "name": "@alchemykit/alchemykit",
-  "version": "0.0.2-0",
+  "version": "0.0.2-1",
   "private": false,
   "bin": "./main.js",
   "nx": {
@@ -20,6 +20,7 @@
           "bundle": false,
           "main": "apps/alchemykit/src/main.ts",
           "tsConfig": "apps/alchemykit/tsconfig.app.json",
+          "generatePackageJson": true,
           "assets": [
             "apps/alchemykit/src/assets"
           ],

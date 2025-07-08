@@ -42,12 +42,12 @@
         }
       },
       "serve": {
-        "continuous": true,
-        "executor": "@nx/js:node",
-        "defaultConfiguration": "development",
+        "command": "npx -y @modelcontextprotocol/inspector node ./apps/alchemykit/dist/main.js",
         "dependsOn": [
           "build"
         ],
+        "continuous": true,
+        "defaultConfiguration": "development",
         "options": {
           "buildTarget": "@alchemykit/alchemykit:build",
           "runBuildTargetDependencies": false

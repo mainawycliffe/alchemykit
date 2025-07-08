@@ -79,6 +79,11 @@
         "projectChangelogs": true,
         "workspaceChangelog": false
       }
+    },
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "{projectRoot}/dist"
+      }
     }
   }
 }

@@ -1,0 +1,26 @@
+{
+  "name": "@alchemykit/alchemykit-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@alchemykit/alchemykit"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/alchemykit-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@alchemykit/alchemykit:build",
+          "@alchemykit/alchemykit:serve"
+        ]
+      }
+    }
+  }
+}
